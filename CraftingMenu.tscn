@@ -1,0 +1,193 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/crafting_menu.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://Wilderness-Survival-Crafting-Essentials/PNG/128/woodcutters-axe.png" id="2_axe"]
+[ext_resource type="Texture2D" path="res://Wilderness-Survival-Crafting-Essentials/PNG/128/mining-pickaxe.png" id="3_pickaxe"]
+[ext_resource type="Texture2D" path="res://Wilderness-Survival-Crafting-Essentials/PNG/128/campfire.png" id="4_campfire"]
+[ext_resource type="Texture2D" path="res://Wilderness-Survival-Crafting-Essentials/PNG/128/survival-tent.png" id="5_tent"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crafting"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.07, 0.08, 0.1, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.55, 0.58, 0.62, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slot"]
+bg_color = Color(0.17, 0.18, 0.21, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.34, 0.37, 0.42, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="CraftingMenu" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_script")
+
+[node name="Root" type="CenterContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Window" type="PanelContainer" parent="Root"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_crafting")
+
+[node name="Content" type="VBoxContainer" parent="Root/Window"]
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Root/Window/Content"]
+layout_mode = 2
+text = "Crafting"
+horizontal_alignment = 1
+
+[node name="Grid" type="GridContainer" parent="Root/Window/Content"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Slot1" type="Panel" parent="Root/Window/Content/Grid"]
+custom_minimum_size = Vector2(72, 72)
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")
+
+[node name="AxeIcon" type="TextureRect" parent="Root/Window/Content/Grid/Slot1"]
+mouse_filter = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_axe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AxeName" type="Label" parent="Root/Window/Content/Grid/Slot1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 48.0
+offset_right = -2.0
+offset_bottom = -2.0
+text = "Axe"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Slot2" type="Panel" parent="Root/Window/Content/Grid"]
+custom_minimum_size = Vector2(72, 72)
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")
+mouse_filter = 0
+
+[node name="PickaxeIcon" type="TextureRect" parent="Root/Window/Content/Grid/Slot2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_pickaxe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PickaxeName" type="Label" parent="Root/Window/Content/Grid/Slot2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 48.0
+offset_right = -2.0
+offset_bottom = -2.0
+text = "Pickaxe"
+horizontal_alignment = 1
+vertical_alignment = 2
+theme_override_font_sizes/font_size = 12
+
+[node name="Slot3" type="Panel" parent="Root/Window/Content/Grid"]
+custom_minimum_size = Vector2(72, 72)
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")
+
+[node name="CampfireIcon" type="TextureRect" parent="Root/Window/Content/Grid/Slot3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_campfire")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CampfireName" type="Label" parent="Root/Window/Content/Grid/Slot3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 48.0
+offset_right = -2.0
+offset_bottom = -2.0
+text = "Fire"
+horizontal_alignment = 1
+vertical_alignment = 2
+theme_override_font_sizes/font_size = 12
+
+[node name="Slot4" type="Panel" parent="Root/Window/Content/Grid"]
+custom_minimum_size = Vector2(72, 72)
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")
+
+[node name="TentIcon" type="TextureRect" parent="Root/Window/Content/Grid/Slot4"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_tent")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TentName" type="Label" parent="Root/Window/Content/Grid/Slot4"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 48.0
+offset_right = -2.0
+offset_bottom = -2.0
+text = "Tent"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Slot5" type="Panel" parent="Root/Window/Content/Grid"]
+custom_minimum_size = Vector2(72, 72)
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")
+
+[node name="Slot6" type="Panel" parent="Root/Window/Content/Grid"]
+custom_minimum_size = Vector2(72, 72)
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")
+
+[node name="Slot7" type="Panel" parent="Root/Window/Content/Grid"]
+custom_minimum_size = Vector2(72, 72)
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")
+
+[node name="Slot8" type="Panel" parent="Root/Window/Content/Grid"]
+custom_minimum_size = Vector2(72, 72)
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")
+
+[node name="Slot9" type="Panel" parent="Root/Window/Content/Grid"]
+custom_minimum_size = Vector2(72, 72)
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")

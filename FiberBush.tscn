@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://Prefabs/Nature/Bushes/EA03_Nature_Bush_02a_PRE.prefab.scn" id="1_bush"]
+[ext_resource type="Script" path="res://scripts/fiber_bush.gd" id="2_script"]
+
+[node name="FiberBush" type="Node3D"]
+script = ExtResource("2_script")
+
+[node name="Bush" parent="." instance=ExtResource("1_bush")]
+
+[node name="PromptLayer" type="CanvasLayer" parent="."]
+
+[node name="FiberLabel" type="Label" parent="PromptLayer"]
+visible = false
+offset_left = -140.0
+offset_top = 180.0
+offset_right = 140.0
+offset_bottom = 250.0
+text = "Fiber (+1)\nPress E to pick up"
+horizontal_alignment = 1
+vertical_alignment = 1

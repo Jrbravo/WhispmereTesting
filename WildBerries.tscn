@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://Prefabs/Bush/EA_M_Env_Bush_BerryDome_01a_PRE.prefab.scn" id="1_visual"]
+[ext_resource type="Script" path="res://scripts/wild_resource.gd" id="2_script"]
+
+[node name="WildBerries" type="Node3D"]
+script = ExtResource("2_script")
+category = "berry"
+item_name = "Wild Berries"
+amount = 2
+prompt_text = "Wild Berries"
+prompt_color = Color(0.95, 0.42, 0.47, 1)
+
+[node name="Visual" parent="." instance=ExtResource("1_visual")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24, 0)
+
+[node name="PromptLayer" type="CanvasLayer" parent="."]
+
+[node name="PromptLabel" type="Label" parent="PromptLayer"]
+visible = false
+offset_left = -140.0
+offset_top = 180.0
+offset_right = 140.0
+offset_bottom = 240.0
+text = "Wild Berries (+2)\nPress E to gather"
+horizontal_alignment = 1
+vertical_alignment = 1

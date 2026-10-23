@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/chef_npc.gd" id="1_chef"]
+[ext_resource type="PackedScene" path="res://Unarmed.glb" id="2_character"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_chef"]
+radius = 0.4
+height = 1.8
+
+[node name="Chef" type="CharacterBody3D"]
+script = ExtResource("1_chef")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_chef")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="Character" parent="Model" instance=ExtResource("2_character")]
+transform = Transform3D(0.72, 0, 0, 0, 0.72, 0, 0, 0, 0.72, 0, 0, 0)

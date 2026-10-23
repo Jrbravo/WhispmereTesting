@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://Prefabs/Items/House/EA03_Items_House_Firewood_01a_PRE.prefab.scn" id="1_log"]
+[ext_resource type="PackedScene" path="res://Prefabs/Prop/Carpentry/EA03_Prop_Brushwood_03a_PRE.prefab.scn" id="2_branch"]
+[ext_resource type="Script" path="res://scripts/wood_resource.gd" id="3_script"]
+
+[node name="WoodResource" type="Node3D"]
+script = ExtResource("3_script")
+
+[node name="Log" parent="." instance=ExtResource("1_log")]
+visible = false
+
+[node name="Branches" parent="." instance=ExtResource("2_branch")]
+visible = false
+
+[node name="PromptLayer" type="CanvasLayer" parent="."]
+
+[node name="WoodLabel" type="Label" parent="PromptLayer"]
+visible = false
+offset_left = -110.0
+offset_top = 180.0
+offset_right = 110.0
+offset_bottom = 240.0
+text = "Wood\nPress E to pick up"
+horizontal_alignment = 1
+vertical_alignment = 1

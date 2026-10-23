@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/wild_resource.gd" id="1_script"]
+
+[sub_resource type="CylinderMesh" id="StemMesh"]
+top_radius = 0.03
+bottom_radius = 0.045
+height = 0.16
+radial_segments = 6
+rings = 1
+
+[sub_resource type="SphereMesh" id="CapMesh"]
+radius = 0.11
+height = 0.22
+is_hemisphere = true
+radial_segments = 10
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StemMat"]
+albedo_color = Color(0.9, 0.87, 0.78, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="CapRed"]
+albedo_color = Color(0.6, 0.22, 0.16, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="CapTan"]
+albedo_color = Color(0.66, 0.5, 0.32, 1)
+roughness = 0.8
+
+[node name="WildMushrooms" type="Node3D"]
+script = ExtResource("1_script")
+category = "mushroom"
+item_name = "Wild Mushrooms"
+amount = 2
+prompt_text = "Wild Mushrooms"
+prompt_color = Color(0.85, 0.72, 0.5, 1)
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="Mushroom1" type="Node3D" parent="Visual"]
+
+[node name="Stem" type="MeshInstance3D" parent="Visual/Mushroom1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+mesh = SubResource("StemMesh")
+material_override = SubResource("StemMat")
+
+[node name="Cap" type="MeshInstance3D" parent="Visual/Mushroom1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)
+mesh = SubResource("CapMesh")
+material_override = SubResource("CapRed")
+
+[node name="Mushroom2" type="Node3D" parent="Visual"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.22, 0, 0.13)
+
+[node name="Stem" type="MeshInstance3D" parent="Visual/Mushroom2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+mesh = SubResource("StemMesh")
+material_override = SubResource("StemMat")
+
+[node name="Cap" type="MeshInstance3D" parent="Visual/Mushroom2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)
+mesh = SubResource("CapMesh")
+material_override = SubResource("CapTan")
+
+[node name="Mushroom3" type="Node3D" parent="Visual"]
+transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, -0.19, 0, -0.11)
+
+[node name="Stem" type="MeshInstance3D" parent="Visual/Mushroom3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+mesh = SubResource("StemMesh")
+material_override = SubResource("StemMat")
+
+[node name="Cap" type="MeshInstance3D" parent="Visual/Mushroom3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)
+mesh = SubResource("CapMesh")
+material_override = SubResource("CapRed")
+
+[node name="Mushroom4" type="Node3D" parent="Visual"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.03, 0, -0.23)
+
+[node name="Stem" type="MeshInstance3D" parent="Visual/Mushroom4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+mesh = SubResource("StemMesh")
+material_override = SubResource("StemMat")
+
+[node name="Cap" type="MeshInstance3D" parent="Visual/Mushroom4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)
+mesh = SubResource("CapMesh")
+material_override = SubResource("CapRed")
+
+[node name="PromptLayer" type="CanvasLayer" parent="."]
+
+[node name="PromptLabel" type="Label" parent="PromptLayer"]
+visible = false
+offset_left = -140.0
+offset_top = 180.0
+offset_right = 140.0
+offset_bottom = 240.0
+text = "Wild Mushrooms (+2)\nPress E to gather"
+horizontal_alignment = 1
+vertical_alignment = 1

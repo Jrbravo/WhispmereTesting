@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=3]
+
+[sub_resource type="StandardMaterial3D" id="LampGlowMaterial"]
+albedo_color = Color(1, 0.62, 0.32, 1)
+emission_enabled = true
+emission = Color(1, 0.42, 0.12, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="SphereMesh" id="LampBulbMesh"]
+material = SubResource("LampGlowMaterial")
+radius = 0.16
+height = 0.32
+
+[node name="TownLighting" type="Node3D"]
+
+[node name="PathCornerNW" type="OmniLight3D" parent="."]
+position = Vector3(-28, 2.2, -28)
+light_color = Color(1, 0.55, 0.24, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="BulbNW" type="MeshInstance3D" parent="."]
+position = Vector3(-28, 2.2, -28)
+mesh = SubResource("LampBulbMesh")
+
+[node name="PathCornerNE" type="OmniLight3D" parent="."]
+position = Vector3(28, 2.2, -28)
+light_color = Color(1, 0.55, 0.24, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="BulbNE" type="MeshInstance3D" parent="."]
+position = Vector3(28, 2.2, -28)
+mesh = SubResource("LampBulbMesh")
+
+[node name="PathCornerSW" type="OmniLight3D" parent="."]
+position = Vector3(-28, 2.2, 28)
+light_color = Color(1, 0.55, 0.24, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="BulbSW" type="MeshInstance3D" parent="."]
+position = Vector3(-28, 2.2, 28)
+mesh = SubResource("LampBulbMesh")
+
+[node name="PathCornerSE" type="OmniLight3D" parent="."]
+position = Vector3(28, 2.2, 28)
+light_color = Color(1, 0.55, 0.24, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="BulbSE" type="MeshInstance3D" parent="."]
+position = Vector3(28, 2.2, 28)
+mesh = SubResource("LampBulbMesh")
+
+[node name="HouseLamp1" type="OmniLight3D" parent="."]
+position = Vector3(-24, 3, -22)
+light_color = Color(1, 0.62, 0.31, 1)
+light_energy = 4.0
+omni_range = 20.0
+
+[node name="HouseLamp2" type="OmniLight3D" parent="."]
+position = Vector3(25, 3, 23)
+light_color = Color(1, 0.62, 0.31, 1)
+light_energy = 4.0
+omni_range = 20.0
+
+[node name="HouseLamp3" type="OmniLight3D" parent="."]
+position = Vector3(-26, 3, 25)
+light_color = Color(1, 0.62, 0.31, 1)
+light_energy = 4.0
+omni_range = 20.0
+
+[node name="HouseLamp4" type="OmniLight3D" parent="."]
+position = Vector3(31, 3, -28)
+light_color = Color(1, 0.62, 0.31, 1)
+light_energy = 4.0
+omni_range = 20.0
+
+[node name="HouseBulb1" type="MeshInstance3D" parent="."]
+position = Vector3(-24, 3, -22)
+mesh = SubResource("LampBulbMesh")
+
+[node name="HouseBulb2" type="MeshInstance3D" parent="."]
+position = Vector3(25, 3, 23)
+mesh = SubResource("LampBulbMesh")
+
+[node name="HouseBulb3" type="MeshInstance3D" parent="."]
+position = Vector3(-26, 3, 25)
+mesh = SubResource("LampBulbMesh")
+
+[node name="HouseBulb4" type="MeshInstance3D" parent="."]
+position = Vector3(31, 3, -28)
+mesh = SubResource("LampBulbMesh")

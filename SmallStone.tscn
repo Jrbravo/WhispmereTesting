@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://KayKit_ResourceBits_1.0_FREE/Assets/gltf/Stone_Chunks_Small.gltf" id="1_stone"]
+[ext_resource type="Script" path="res://scripts/stone_resource.gd" id="2_script"]
+
+[node name="SmallStone" type="Node3D"]
+script = ExtResource("2_script")
+
+[node name="StoneChunksSmall" parent="." instance=ExtResource("1_stone")]
+position = Vector3(0, 0.02, 0)
+scale = Vector3(0.6, 0.6, 0.6)
+
+[node name="PromptLayer" type="CanvasLayer" parent="."]
+
+[node name="StoneLabel" type="Label" parent="PromptLayer"]
+visible = false
+offset_left = -130.0
+offset_top = 180.0
+offset_right = 130.0
+offset_bottom = 240.0
+text = "Stone (+1)\nPress E to pick up"
+horizontal_alignment = 1
+vertical_alignment = 1
